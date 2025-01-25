@@ -304,3 +304,290 @@ You can also deploy your app manually, check out the [deployment documentation](
 ## Questions
 
 If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+
+```
+payload-project
+├─ .editorconfig
+├─ .git
+├─ .gitignore
+├─ .npmrc
+├─ .prettierignore
+├─ .prettierrc.json
+├─ .vscode
+│  ├─ extensions.json
+│  ├─ launch.json
+│  └─ settings.json
+├─ components.json
+├─ docker-compose.yml
+├─ Dockerfile
+├─ eslint.config.mjs
+├─ next-env.d.ts
+├─ next-sitemap.config.cjs
+├─ next.config.js
+├─ package.json
+├─ pnpm-lock.yaml
+├─ postcss.config.js
+├─ public
+│  ├─ favicon.ico
+│  ├─ favicon.svg
+│  └─ website-template-OG.webp
+├─ README.md
+├─ redirects.js
+├─ src
+│  ├─ access
+│  │  ├─ anyone.ts
+│  │  ├─ authenticated.ts
+│  │  └─ authenticatedOrPublished.ts
+│  ├─ app
+│  │  ├─ (frontend)
+│  │  │  ├─ (sitemaps)
+│  │  │  │  ├─ pages-sitemap.xml
+│  │  │  │  │  └─ route.ts
+│  │  │  │  └─ posts-sitemap.xml
+│  │  │  │     └─ route.ts
+│  │  │  ├─ globals.css
+│  │  │  ├─ layout.tsx
+│  │  │  ├─ next
+│  │  │  │  ├─ exit-preview
+│  │  │  │  │  ├─ GET.ts
+│  │  │  │  │  └─ route.ts
+│  │  │  │  ├─ preview
+│  │  │  │  │  └─ route.ts
+│  │  │  │  └─ seed
+│  │  │  │     └─ route.ts
+│  │  │  ├─ not-found.tsx
+│  │  │  ├─ page.tsx
+│  │  │  ├─ posts
+│  │  │  │  ├─ page
+│  │  │  │  │  └─ [pageNumber]
+│  │  │  │  │     ├─ page.client.tsx
+│  │  │  │  │     └─ page.tsx
+│  │  │  │  ├─ page.client.tsx
+│  │  │  │  ├─ page.tsx
+│  │  │  │  └─ [slug]
+│  │  │  │     ├─ page.client.tsx
+│  │  │  │     └─ page.tsx
+│  │  │  ├─ search
+│  │  │  │  ├─ page.client.tsx
+│  │  │  │  └─ page.tsx
+│  │  │  └─ [slug]
+│  │  │     ├─ page.client.tsx
+│  │  │     └─ page.tsx
+│  │  └─ (payload)
+│  │     ├─ admin
+│  │     │  ├─ importMap.js
+│  │     │  └─ [[...segments]]
+│  │     │     ├─ not-found.tsx
+│  │     │     └─ page.tsx
+│  │     ├─ api
+│  │     │  ├─ graphql
+│  │     │  │  └─ route.ts
+│  │     │  ├─ graphql-playground
+│  │     │  │  └─ route.ts
+│  │     │  └─ [...slug]
+│  │     │     └─ route.ts
+│  │     ├─ custom.scss
+│  │     └─ layout.tsx
+│  ├─ blocks
+│  │  ├─ ArchiveBlock
+│  │  │  ├─ Component.tsx
+│  │  │  └─ config.ts
+│  │  ├─ Banner
+│  │  │  ├─ Component.tsx
+│  │  │  └─ config.ts
+│  │  ├─ CallToAction
+│  │  │  ├─ Component.tsx
+│  │  │  └─ config.ts
+│  │  ├─ Code
+│  │  │  ├─ Component.client.tsx
+│  │  │  ├─ Component.tsx
+│  │  │  ├─ config.ts
+│  │  │  └─ CopyButton.tsx
+│  │  ├─ Content
+│  │  │  ├─ Component.tsx
+│  │  │  └─ config.ts
+│  │  ├─ Form
+│  │  │  ├─ Checkbox
+│  │  │  │  └─ index.tsx
+│  │  │  ├─ Component.tsx
+│  │  │  ├─ config.ts
+│  │  │  ├─ Country
+│  │  │  │  ├─ index.tsx
+│  │  │  │  └─ options.ts
+│  │  │  ├─ Email
+│  │  │  │  └─ index.tsx
+│  │  │  ├─ Error
+│  │  │  │  └─ index.tsx
+│  │  │  ├─ fields.tsx
+│  │  │  ├─ Message
+│  │  │  │  └─ index.tsx
+│  │  │  ├─ Number
+│  │  │  │  └─ index.tsx
+│  │  │  ├─ Select
+│  │  │  │  └─ index.tsx
+│  │  │  ├─ State
+│  │  │  │  ├─ index.tsx
+│  │  │  │  └─ options.ts
+│  │  │  ├─ Text
+│  │  │  │  └─ index.tsx
+│  │  │  ├─ Textarea
+│  │  │  │  └─ index.tsx
+│  │  │  └─ Width
+│  │  │     └─ index.tsx
+│  │  ├─ MediaBlock
+│  │  │  ├─ Component.tsx
+│  │  │  └─ config.ts
+│  │  ├─ ProjectsBlock
+│  │  │  ├─ Component.tsx
+│  │  │  └─ config.ts
+│  │  ├─ RelatedPosts
+│  │  │  └─ Component.tsx
+│  │  └─ RenderBlocks.tsx
+│  ├─ collections
+│  │  ├─ Categories.ts
+│  │  ├─ Media.ts
+│  │  ├─ Pages
+│  │  │  ├─ hooks
+│  │  │  │  └─ revalidatePage.ts
+│  │  │  └─ index.ts
+│  │  ├─ Posts
+│  │  │  ├─ hooks
+│  │  │  │  ├─ populateAuthors.ts
+│  │  │  │  └─ revalidatePost.ts
+│  │  │  └─ index.ts
+│  │  └─ Users
+│  │     └─ index.ts
+│  ├─ components
+│  │  ├─ AdminBar
+│  │  │  ├─ index.scss
+│  │  │  └─ index.tsx
+│  │  ├─ BeforeDashboard
+│  │  │  ├─ index.scss
+│  │  │  ├─ index.tsx
+│  │  │  └─ SeedButton
+│  │  │     ├─ index.scss
+│  │  │     └─ index.tsx
+│  │  ├─ BeforeLogin
+│  │  │  └─ index.tsx
+│  │  ├─ Card
+│  │  │  └─ index.tsx
+│  │  ├─ CollectionArchive
+│  │  │  └─ index.tsx
+│  │  ├─ Link
+│  │  │  └─ index.tsx
+│  │  ├─ LivePreviewListener
+│  │  │  └─ index.tsx
+│  │  ├─ Logo
+│  │  │  └─ index.tsx
+│  │  ├─ Media
+│  │  │  ├─ ImageMedia
+│  │  │  │  └─ index.tsx
+│  │  │  ├─ index.tsx
+│  │  │  ├─ types.ts
+│  │  │  └─ VideoMedia
+│  │  │     └─ index.tsx
+│  │  ├─ PageRange
+│  │  │  └─ index.tsx
+│  │  ├─ Pagination
+│  │  │  └─ index.tsx
+│  │  ├─ PayloadRedirects
+│  │  │  └─ index.tsx
+│  │  ├─ RichText
+│  │  │  └─ index.tsx
+│  │  └─ ui
+│  │     ├─ button.tsx
+│  │     ├─ card.tsx
+│  │     ├─ checkbox.tsx
+│  │     ├─ input.tsx
+│  │     ├─ label.tsx
+│  │     ├─ pagination.tsx
+│  │     ├─ select.tsx
+│  │     └─ textarea.tsx
+│  ├─ cssVariables.js
+│  ├─ endpoints
+│  ├─ environment.d.ts
+│  ├─ fields
+│  │  ├─ defaultLexical.ts
+│  │  ├─ link.ts
+│  │  ├─ linkGroup.ts
+│  │  └─ slug
+│  │     ├─ formatSlug.ts
+│  │     ├─ index.scss
+│  │     ├─ index.ts
+│  │     └─ SlugComponent.tsx
+│  ├─ Footer
+│  │  ├─ Component.tsx
+│  │  ├─ config.ts
+│  │  ├─ hooks
+│  │  │  └─ revalidateFooter.ts
+│  │  └─ RowLabel.tsx
+│  ├─ Header
+│  │  ├─ Component.client.tsx
+│  │  ├─ Component.tsx
+│  │  ├─ config.ts
+│  │  ├─ hooks
+│  │  │  └─ revalidateHeader.ts
+│  │  ├─ Nav
+│  │  │  └─ index.tsx
+│  │  └─ RowLabel.tsx
+│  ├─ heros
+│  │  ├─ config.ts
+│  │  ├─ HighImpact
+│  │  │  └─ index.tsx
+│  │  ├─ LowImpact
+│  │  │  └─ index.tsx
+│  │  ├─ MediumImpact
+│  │  │  └─ index.tsx
+│  │  ├─ PostHero
+│  │  │  └─ index.tsx
+│  │  └─ RenderHero.tsx
+│  ├─ hooks
+│  │  ├─ formatSlug.ts
+│  │  ├─ populatePublishedAt.ts
+│  │  └─ revalidateRedirects.ts
+│  ├─ images
+│  │  ├─ hero-image-zopa.png
+│  │  └─ logo.svg
+│  ├─ migrations
+│  ├─ payload-types.ts
+│  ├─ payload.config.ts
+│  ├─ plugins
+│  │  └─ index.ts
+│  ├─ providers
+│  │  ├─ HeaderTheme
+│  │  │  └─ index.tsx
+│  │  ├─ index.tsx
+│  │  └─ Theme
+│  │     ├─ index.tsx
+│  │     ├─ InitTheme
+│  │     │  └─ index.tsx
+│  │     ├─ shared.ts
+│  │     ├─ ThemeSelector
+│  │     │  ├─ index.tsx
+│  │     │  └─ types.ts
+│  │     └─ types.ts
+│  ├─ search
+│  │  ├─ beforeSync.ts
+│  │  ├─ Component.tsx
+│  │  └─ fieldOverrides.ts
+│  └─ utilities
+│     ├─ canUseDOM.ts
+│     ├─ deepMerge.ts
+│     ├─ formatAuthors.ts
+│     ├─ formatDateTime.ts
+│     ├─ generateMeta.ts
+│     ├─ generatePreviewPath.ts
+│     ├─ getDocument.ts
+│     ├─ getGlobals.ts
+│     ├─ getMeUser.ts
+│     ├─ getRedirects.ts
+│     ├─ getURL.ts
+│     ├─ mergeOpenGraph.ts
+│     ├─ toKebabCase.ts
+│     ├─ ui.ts
+│     ├─ useClickableCard.ts
+│     └─ useDebounce.ts
+├─ tailwind.config.mjs
+└─ tsconfig.json
+
+```

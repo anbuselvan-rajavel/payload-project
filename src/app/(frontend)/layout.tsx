@@ -36,7 +36,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
           <Header />
           {children}
-          <Footer />
+          <Footer id={1} />
         </Providers>
       </body>
     </html>
